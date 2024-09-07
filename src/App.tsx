@@ -6,6 +6,8 @@ import { cardInterface } from './interfaces/cardInterface';
 import { pageInterface } from './interfaces/pageInterface';
 import React from 'react';
 import { CharacterInterface } from './interfaces/characterInterface';
+import backgroundFirst  from './assets/back-dragon-ball.jpg'
+import backgroundCard  from './assets/back-card.jpeg'
 
 function App() {
 
@@ -39,7 +41,7 @@ function App() {
   );
 
   // dialog
-  const dialogRef = React.useRef(null);
+  const dialogRef = React.useRef<HTMLDialogElement>(null);
 
   // const apiDragonBall = `https://dragonball-api.com/api/characters?page=1`;
   const apiDragonBall = `https://dragonball-api.com/api/`;
@@ -126,7 +128,7 @@ function App() {
 
 
   const detailCharacters = async (idCharacter: cardInterface) => {
-    console.log(idCharacter);
+    // console.log(idCharacter);
     try{
       const response = await fetch(`${apiDragonBall}${type}/${idCharacter.id}`);
       const data = await response.json();
@@ -151,13 +153,13 @@ function App() {
           </ul>
         </nav>
       </header>
-      <section id='back-first'>
+      <section id='back-first' style={{ backgroundImage: `url(${backgroundFirst})` }}>
       </section>
       {type == 'characters'?
       
       <section id='content-body'>
         {card.map(item =>(
-          <div key={item.id} className='card-character'>
+          <div key={item.id} className='card-character' style={{ backgroundImage: `url(${backgroundCard})` }}>
             <img src={logo} alt="" className='logo-card' />
             <div className='content-image'>
               <img src={item.image} alt="" className='image-card' />
@@ -181,7 +183,7 @@ function App() {
       :
       <section id='content-body'>
         {card.map(item =>(
-          <div key={item.id} className='card-character' id='card-planet'>
+          <div key={item.id} className='card-character' id='card-planet' >
             <img src={logo} alt="" className='logo-card' />
             <div className='content-image'>
               <img src={item.image} alt="" className='image-card' />
@@ -221,13 +223,13 @@ function App() {
               </div>
 
 
-              
+              {character.transformations.length > 0 && (
               <div className="transformations">
                 <h3>Transformaciones</h3>
                     <div className="transformation-list">
                       {character.transformations.map(transform =>(
-                        <div className="transformation" key={transform.id}>
-                          <div>
+                        <div className="transformation" key={transform.id} >
+                          <div style={{ backgroundImage: `url(${backgroundCard})` }}>
                             <img src={transform.image}  />
                           </div>
                           <h3>{transform.name}</h3>
@@ -236,6 +238,7 @@ function App() {
                       ))}
                     </div>
               </div>
+              )}
             </>
           :
             <div>No funciona</div>
