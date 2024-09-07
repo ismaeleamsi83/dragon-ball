@@ -1,0 +1,575 @@
+*{
+  box-sizing: border-box;
+  font-family: "Bangers", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+body,html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: #ff7e5f;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #feb47b, #ff7e5f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+#body-content{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 32px;
+  margin: 0;
+  transition: 0.7s ease-in-out;
+  z-index: 10;
+}
+
+header nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+header nav div img{
+  width: 250px;
+  height: auto;
+  transition: 0.7s ease-in-out;
+}
+
+header nav ul{
+  list-style: none;
+  display: flex;
+  gap: 64px
+}
+
+header nav ul li a{
+  font-size: 28px;
+  color: #fcb750;
+  text-shadow: 2px 2px 2px black;
+  transition: 0.7s ease-in-out;
+  text-decoration: none;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+
+#back-first{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: url('back-dragon-ball.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+
+
+
+header nav ul li a:hover{
+  color: #fa652f;
+}
+
+/* Animacion cuando desplazo hacia abajo */
+header.active{
+  margin: 0;
+  padding: 8px 16px;
+  background-color: rgba(240, 248, 255, 0.5);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 8px black;
+}
+
+header.active nav div img{
+  width: 150px;
+}
+
+header.active nav ul li a{
+  /* text-shadow: none !important;
+  color: #9b1200; */
+  color: #fcb750;
+  text-shadow: 2px 2px 2px black;
+}
+
+header.active nav ul li a:hover{
+  color: #fa652f;
+}
+
+
+/* contenido personajes */
+#content-body{
+  position: relative;
+  max-width: 1400px;
+  margin: 32px auto 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+#content-body .card-character{
+  position: relative;
+  height: 360px;
+  width: 220px;
+  background: url('back-card.jpeg');
+  background-size: cover;
+  background-position: center center;
+  border: 12px solid #FFC671;
+  border-radius: 16px;
+  transition: 0.7s ease-in-out;
+  overflow: hidden;
+}
+
+#content-body .card-character:hover{
+  box-shadow: 2px 2px 4px rgb(255, 204, 137);
+  cursor: pointer;
+}
+
+#content-body .card-character .logo-card{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 90px;
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+
+
+#content-body .card-character .content-image{
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  /* background-color: #fa652f; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#content-body .card-character .content-image .image-card{
+  max-height: 80%;
+  max-width: 80%;
+  padding-bottom: 16px;
+  transition: 0.7s ease-in-out;
+}
+
+#content-body .card-character .content-image .image-card:hover{
+  transform: scale(1.1);
+  filter: drop-shadow(3px 3px 3px black);
+}
+
+#content-body .card-character .content-text{
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-color: rgba(241, 240, 240, 0.5);
+  padding: 8px;
+  margin: 0;
+  transform: translateY(100%);
+  transition: all 0.8s ease-in-out;
+  /* will-change: transform; */
+  /* From Uiverse.io by cssbuttons-io */ 
+  button {
+    margin: 8px 0;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+  }
+  
+  button.learn-more {
+    width: 10rem;
+    height: auto;
+  }
+  
+  button.learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #282936;
+    border-radius: 1.625rem;
+  }
+  
+  button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+  }
+  
+  button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+  
+  button.learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+  
+  button.learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+  
+  button:hover .circle {
+    width: 100%;
+  }
+  
+  button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+  }
+  
+  button:hover .button-text {
+    color: #fff;
+  }
+}
+
+#content-body .card-character:hover .content-text {
+  transform: translateY(0%);
+}
+
+#content-body .card-character .content-text h4{
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  padding: 0 0 8px 0;
+  color: rgb(226, 28, 2);
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 2px;
+  text-decoration: underline;
+}
+
+#content-body .card-character .content-text p{
+  margin: 0;
+  padding: 2px 0;
+  color: #fde50d;
+  text-shadow: 1px 1px 1px black;
+  font-size: 18px;
+}
+
+@media (max-width: 767px) {
+  header nav div img{
+    width: 100px;
+    height: auto;
+    transition: 0.7s ease-in-out;
+  }
+  
+  header nav ul{
+    list-style: none;
+    display: flex;
+    gap: 16px
+  }
+  
+  header nav ul li a{
+    font-size: 17px;
+    color: #fcb750;
+    text-shadow: 2px 2px 2px black;
+    transition: 0.7s ease-in-out;
+    text-decoration: none;
+    letter-spacing: 3px;
+  }
+
+  header.active nav div img{
+    width: 100px;
+  }
+  
+  header.active nav ul li a{
+    /* text-shadow: none !important;
+    color: #9b1200; */
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+#content-body #card-planet{
+  /* height: 360px;
+  width: 220px; */
+  height: 360px;
+  width: 290px;
+}
+
+
+#content-body #card-planet #text-planets{
+  background-color: #080312be;
+}
+
+/* Dialog */
+#dialog{
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #080312be;
+  color:rgb(252, 186, 6);
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  width: 98vw;
+  height: 98vh;
+  /* display: none; */
+  #dialog-content {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto; 
+    padding-right: 16px;
+    .btn{
+      background-color: #8b0101;
+      color: white;
+      text-shadow: 1px 1px 1px black;
+      font-size: 20px;
+      padding: 8px 32px;
+      margin: 32px 0;
+      cursor: pointer;
+      transition: all 0.7s ease-in-out;
+    }
+    .btn:hover{
+      box-shadow: 2px 2px 4px black;
+    }
+    h2{
+      font-size: 32px;
+      font-weight: bold;
+      letter-spacing: 4px;
+    }
+    .affiliation, .race, .gender, .ki-info{
+      font-size: 26px;
+      padding: 4px 0;
+    }
+    .description{
+      font-size: 24px;
+    }
+
+    .planet{
+      h3{
+        font-size: 24px;
+      }
+      img{
+        width: 340px;
+      }
+      p{
+        font-size: 20px;
+      }
+    }
+    .transformations{
+      h3{
+        font-size: 24px;
+      }
+      p{
+        font-size: 20px;
+      }
+      .transformation-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 16px;
+        .transformation{
+          border: 1px solid gold;
+          width: 240px;
+          height: auto;
+          padding: 16px;
+          div{
+            margin: 0 auto;
+            width: 80%;
+            background: url('back-card.jpeg');
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            img{
+              height: 240px;
+              transition: all 0.7s ease-in-out;
+            }
+            img:hover{
+              transform: scale(1.1);
+              filter: drop-shadow(2px 2px 2px black);
+            }
+          }
+          h3,p{
+            margin: 0;
+            padding: 8px 0 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Pagination */
+#pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  gap: 64px;
+  padding: 0 8px 32px 8px;
+  margin: 32px auto;
+  button{
+    width: 100px;
+    padding: 8px 0;
+    color: #ce3701;
+    font-size: 18px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+  span{
+    letter-spacing: 1px;
+  }
+
+
+  /* From Uiverse.io by kleenpulse */ 
+  .btn {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+    cursor: pointer;
+    /* use position: relative; so that BG is only for .btn */
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+
+  .btn::after,
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .btn::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+
+    50% {
+      background-position: 70% 100%;
+    }
+
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+
+  .btn:where(:hover, :focus) {
+    color: #fff;
+  }
+
+
+}
+
+
